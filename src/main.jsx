@@ -6,6 +6,8 @@ import { createBrowserRouter } from 'react-router'
 import RootLayout from './layout/RootLayout'
 import Apps from './pages/apps/Apps'
 import InstalledApps from './pages/installedApps/InstalledApps'
+import ErrorPage from './pages/errorPage/ErrorPage'
+import HomePage from './pages/homePage/HomePage'
 
 const router = createBrowserRouter(
   [
@@ -15,7 +17,7 @@ const router = createBrowserRouter(
       children: [
         {
           path: '/', //index: true, same as path: '/'
-          element: <h2>Home</h2>
+          element: <HomePage></HomePage>
         },
         {
           path: '/apps',
@@ -25,7 +27,8 @@ const router = createBrowserRouter(
           path: '/installedApps',
           element: <InstalledApps></InstalledApps>
         }
-      ]
+      ],
+      errorElement: <ErrorPage></ErrorPage>
     }
   ]
 )
@@ -33,8 +36,6 @@ const router = createBrowserRouter(
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <h2 className='bg-red-200'>Hello</h2>
-
     <RouterProvider router={router} />
   </StrictMode>,
 )
