@@ -11,8 +11,8 @@ const Banner = () => {
                 Our goal is to turn your ideas into digital experiences that truly make an impact.
             </p>
             <div className="flex justify-center items-center gap-4 my-10">
-                <button className="py-3 px-6 border border-[#D2D2D2] rounded-sm flex items-center gap-4"><span><img src={playStoreImg} alt="Play Store" /></span>Google Play</button>
-                <button className="py-3 px-6 border border-[#D2D2D2] rounded-sm flex items-center gap-4"><span><img src={appStoreImg} alt="App Store" /></span>App Store</button>
+                <button className="py-3 px-6 border border-[#D2D2D2] rounded-sm flex items-center gap-4 hover:bg-gray-100 cursor-pointer"><span><img src={playStoreImg} alt="Play Store" /></span>Google Play</button>
+                <button className="py-3 px-6 border border-[#D2D2D2] rounded-sm flex items-center gap-4 hover:bg-gray-100 cursor-pointer"><span><img src={appStoreImg} alt="App Store" /></span>App Store</button>
             </div>
 
             <img src={bannerImg} alt="Hero Banner" className='mx-auto'/>
