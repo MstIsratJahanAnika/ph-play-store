@@ -41,11 +41,7 @@ const TrendingApps = ({ apps, setApps, isLoading }) => {
 
                                 {
                                     apps.slice(0, 8).map(app => (
-                                        <AllCards
-                                            app={app}
-                                            key={app.id}
-                                        />
-                                    ))
+                                        <AllCards app={app} key={app.id}></AllCards>))
                                 }
 
                             </div>
@@ -57,8 +53,7 @@ const TrendingApps = ({ apps, setApps, isLoading }) => {
                                     </button>
                                 </Link>
                             </div>
-                        </>
-                        )
+                        </>)
                 }
 
             </div>

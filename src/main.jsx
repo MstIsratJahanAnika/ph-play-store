@@ -2,41 +2,19 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import { RouterProvider } from 'react-router/dom'
-import { createBrowserRouter } from 'react-router'
-import RootLayout from './layout/RootLayout'
-import Apps from './pages/apps/Apps'
-import InstalledApps from './pages/installedApps/InstalledApps'
-import ErrorPage from './pages/errorPage/ErrorPage'
-import HomePage from './pages/homePage/HomePage'
 
-const router = createBrowserRouter(
-  [
-    {
-      path: '/',
-      element: <RootLayout></RootLayout>,
-      children: [
-        {
-          path: '/', //index: true, same as path: '/'
-          element: <HomePage></HomePage>,
-          // loader: ()=> fetch('data.json')
-        },
-        {
-          path: '/apps',
-          element: <Apps></Apps>
-        },
-        {
-          path: '/installedApps',
-          element: <InstalledApps></InstalledApps>
-        }
-      ],
-      errorElement: <ErrorPage></ErrorPage>
-    }
-  ]
-)
+import { router } from './Router/Routes'
+import InstalledAppsProvider from './context/InstalledAppsProvider'
 
+
+// Routes file theke path gula import kore nibo, jekhane sob route define kora ache
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+
+    {/* use of context API */}
+    <InstalledAppsProvider>
+      <RouterProvider router={router} />
+    </InstalledAppsProvider>
   </StrictMode>,
 )

@@ -3,6 +3,7 @@ import Banner from "./banner/Banner";
 import Stats from "./stats/Stats";
 import TrendingApps from "./trendingApps/TrendingApps";
 import { useEffect, useState } from "react";
+import useApps from "../apps/useApps";
 
 const HomePage = () => {
 
@@ -14,28 +15,7 @@ const HomePage = () => {
     // const data = useLoaderData();
     // console.log(data, 'data from home page');
 
-    const [apps, setApps] = useState([]);
-
-    // loading fallBack dekhanor jonno 
-    const [isLoading, setIsLoading] = useState(true);
-
-    // useEffect use kore
-    useEffect(()=>{
-        const fetchData = async()=>{
-            const response = await fetch('/data.json');
-            const data = await response.json();
-
-            setTimeout(()=>{
-                setApps(data); //state er moddhe data peye jabo
-                setIsLoading(false);
-
-                // data peye gele loading false kore dao
-            }, 2000) //2 second por loading false kore dao, jate loading fallBack dekha jay
-
-            console.log(data, 'data from home page');
-        };
-        fetchData(); //function ke call kore dao
-    }, [])
+    const {apps, isLoading, setApps} = useApps(); //custom hook theke data access kora
 
     console.log(apps, 'apps from home page'); //state e update howar por abar render hobe, tai ekhane apps er data peye jabo
     console.log(isLoading, 'isLoading from home page'); //loading state er value peye jabo

@@ -1,12 +1,13 @@
 import { FaStar } from "react-icons/fa";
 import { MdOutlineFileDownload } from "react-icons/md";
+import { Link } from "react-router";
 
 const AllCards = ({ app }) => {
 
     const { image, title, id, downloads, ratingAvg } = app;
 
     return (
-        <div key={id} className="container mx-auto my-10">
+        <Link key={id} to={`/apps/${id}`} className="container mx-auto my-10">
             <div className="card bg-base-100 shadow-sm">
                 <figure>
                     <img src={image} alt={title} className="w-auto h-[200px]"/>
@@ -27,7 +28,7 @@ const AllCards = ({ app }) => {
                     </span>
                 </div>
             </div>
-        </div>
+        </Link>
     );
 };
 
