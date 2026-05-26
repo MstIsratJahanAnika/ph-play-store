@@ -2,6 +2,7 @@
 import logoImg from '../../assets/images/logo.png';
 import { FaGithub } from 'react-icons/fa';
 import MyNavLink from './MyNavLink';
+// import DashBoard from '../../pages/graphDashBoard/DashBoard';
 
 const navItems = [
     {
@@ -15,7 +16,11 @@ const navItems = [
     {
         path: '/installedApps',
         text: 'Installation'
-    }
+    },
+    {
+        path: '/dashBoard',
+        text: 'DashBoard'
+    } 
 ]
 const Navbar = () => {
     return (

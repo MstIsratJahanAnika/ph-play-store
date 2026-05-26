@@ -6,8 +6,9 @@ import ratingIcon from '../../assets/images/icon-ratings.png';
 import reviewIcon from '../../assets/images/icon-review.png';
 import ErrorPage from "../errorPage/ErrorPage";
 import { HashLoader } from "react-spinners";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { InstalledAppsContext } from "../../context/InstalledAppsContext";
+import { toast } from "react-toastify";
 
 const AppDetails = () => {
 
@@ -21,13 +22,30 @@ const AppDetails = () => {
     const contextData = useContext(InstalledAppsContext); //context theke data access kora
     const { installedApps, setInstalledApps } = contextData;
 
-    const handleInstalledApps = () => {
-        setInstalledApps([...installedApps, expectedApp]);
-    };
-    console.log(installedApps, 'installed apps from app details page');
-
     const expectedApp = apps.find(app => (app.id) == id); //apps array theke id match kore expected app ta ber kora
     console.log(expectedApp, 'expected app from app details page'); //expected app er data peye jabo
+
+    // install app
+    const handleInstalledApps = () => {
+
+        // if already exists in installed 
+        const alreadyExists = installedApps.find(app => app.id == expectedApp.id);
+
+        if(alreadyExists){
+            toast.error(`${expectedApp.title} already exists`);
+            return;
+        }
+
+        // installed na thakle baki code execute koro
+        setInstalledApps([...installedApps, expectedApp]);
+
+        // toaster added
+        toast.success(`${expectedApp.title} is Installed!`);
+    };
+
+
+    console.log(installedApps, 'installed apps from app details page');
+
 
     if (isLoading) {
         return (

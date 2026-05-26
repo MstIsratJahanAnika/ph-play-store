@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router";
 import AllCards from "../homePage/trendingApps/allCards/AllCards";
 import { HashLoader } from "react-spinners";
 import useApps from "./useApps";
